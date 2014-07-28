@@ -1,0 +1,30 @@
+<h1><%= @person.title %> <%= @person.first_name %> <%= @person.last_name %></h1>
+<%= link_to('edit person', edit_person_path(@person)) %>
+
+<%= link_to "+ Add Location", new_person_employment_path(@person), class: "pull-right" %>
+<h1>Locations</h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Location</th>
+    <th>Role</th>
+    <th> </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @person.employments.each do |employment| %>
+      <tr>
+        <td>
+          <%= employment.location.name %>
+        </td>
+        <td>
+          <%= employment.role %>
+        </td>
+        <td>
+
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

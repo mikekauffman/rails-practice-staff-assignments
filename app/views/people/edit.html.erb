@@ -1,12 +1,12 @@
-<h1>Add a Staff Member</h1>
+<h1>Edit <%= @person.title %> <%= @person.first_name %> <%= @person.last_name %></h1>
 
 <% if @person.errors %>
-    <div class="errors">
-      <h2>This person could not be created</h2>
-      <% @person.errors.full_messages.each do |error| %>
+    <h2>This person could not be created</h2>
+    <% @person.errors.full_messages.each do |error| %>
+        <div class="errors">
           <%= error %>
-      <% end %>
-    </div>
+        </div>
+    <% end %>
 <% end %>
 
 <%= form_for @person do |f| %>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="form-row">
-      <%= f.submit %>
+      <%= f.submit :update %>
     </div>
 
 <% end %>
